@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Contacts</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css?_v=20230327195509" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20230327195509">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- icons -->
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+<style>
+	body {
+		background-color: #00072D;
+		color: white;
+	}
+	
+	.contact {
+		width: 100%;
+		max-width: 75rem;
+		margin-top: 70px;
+	}
+	
+	.contact_text {
+		font-size: 3rem;
+		text-align: center;
+		color: black;
+		opacity: 80%;
+	}
+	
+	.contact_main {
+		margin: 2rem 0;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		background-color: #00072D;
+		padding: 3rem;
+		gap: 2rem;
+		border: 2px solid white;
+		border-radius: 0.3125rem;
+	}
+	
+	.contact_main .input {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1rem;
+	}
+	
+	.contact_main .input .name,
+	.contact_main .input .email,
+	.contact_main .input .textarea {
+		display: flex;
+		justify-content: start;
+		flex-direction: column;
+	}
+	
+	.contact_main .input .name label,
+	.contact_main .input .email label,
+	.contact_main .input .textarea label {
+		font-size: 1rem;
+		color: orange;
+		margin: 0.5rem 0;
+		font-weight: 600;
+	}
+	
+	.contact_main .input .name input,
+	.contact_main .input .name textarea,
+	.contact_main .input .email input,
+	.contact_main .input .email textarea,
+	.contact_main .input .textarea input,
+	.contact_main .input .textarea textarea {
+		border-radius: 0.3125rem;
+		padding: 1rem;
+		border: none;
+		outline: none;
+		background-color:rgb(249, 252, 252);
+		color: black;
+	}
+	
+	.contact_main .input .submit {
+		margin: 2rem 0;
+	}
+	
+	.contact_main .details {
+		display: flex;
+		justify-content: start;
+		flex-direction: column;
+		text-align: right;
+		padding: 2rem;
+	}
+	
+	.contact_main .details p {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+	
+	.contact_main .details_text h1 {
+		font-size: 3rem;
+		font-weight: bolder;
+		color: white;
+	}
+	
+	.contact_main .details_text p {
+		color: white;
+		opacity: 80%;
+		
+	}
+	
+	.contact_main .details ul {
+		margin: 2rem 0;
+	}
+	
+	.contact_main .details ul li {
+		display: flex;
+		justify-content: right;
+		column-gap: 1rem;
+		text-align: right;
+		margin-top: 1rem;
+	}
+	
+	.contact_main .details ul li ion-icon {
+		font-size: 2.2rem;
+		color: orange;
+	}
+	
+	.contact_main .details .social {
+		display: flex;
+		justify-content: right;
+		flex-direction: row;
+		column-gap: 1rem;
+	}
+	
+	.contact_main .details .social .box {
+		background-color: black;
+		border-radius: 50%;
+		padding: 0.5rem;
+		clip-path: circle(75%);
+		transition: clip-path 1s;
+	}
+	
+	.contact_main .details .social .box a {
+		margin: 0;
+		color: orange;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 2rem;
+		
+	}
+	
+	.contact_main .details .social .box:hover {
+		clip-path: circle(44%);
+	}
+	
+	@media (max-width: 70.625rem) {
+		.contact {
+			padding: 1rem 3.75rem;
+		}
+	}
+	
+	@media (max-width: 50.625em) {
+		.contact {
+			padding: 1rem 1.25rem;
+		}
+		.contact_main .input {
+			grid-column: span 2;
+			margin-bottom: 15px;
+		}
+		.contact_main .details {
+			grid-row-start: 1;
+			grid-column: span 2;
+			justify-content: left;
+			text-align: left;
+			padding: 0;
+		}
+		.contact_main .details ul li {
+			justify-content: left;
+			flex-direction: row-reverse;
+		}
+		.contact_main .details .social {
+			justify-content: left;
+		}
+	}
+	
+	.button-86 {
+    all: unset;
+    width: 100px;
+    height: 30px;
+    font-size: 19px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    position: relative;
+    color: #00072D;
+    cursor: pointer;
+    z-index: 1;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: all 0.4s; /* Add transition to make the enlargement smooth */
+}
+
+.button-86::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -99999;
+    transition: all 0.4s;
+    transform: translate(0%, 0%);
+    width: 100%;
+    height: 100%;
+    background: orange;
+    border-radius: 10px;
+}
+
+.button-86:hover::before {
+    background: #FFA500; /* Change to a simple color on hover */
+    transform: none; /* Remove the transform effect */
+    width: 100%; /* Reset width */
+    height: 100%; /* Reset height */
+}
+
+.button-86:hover {
+    transform: scale(1.1); /* Enlarge the button by 10% */
+}
+
+.button-86:active::before {
+    transition: 0s;
+    transform: none; /* Remove the transform effect */
+}
+
+
+</style>	
+</head>
+
+<body>
+	
+	<div class="wrapper wrapper_contacts">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__wrapper">
+					<a class="header__logo" href="index.html"><picture><source srcset="img/logo.png" type="image/webp"><img src="img/logo.png" alt="kron logo"></picture></a>
+					<nav class="header__menu menu">
+						<ul class="menu__items">
+							<li class="menu__item"><a href="index.html">about us.</a></li>
+							<li class="menu__item"><a href="contacts.html">contacts.</a></li>
+							<li class="menu__item menu__item_gradient"><a href="kronstories.html">#OurProjects</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main class="contacts">
+			<div class="contacts__container">
+				<div class="contacts__wrapper">
+
+					<div class="contacts__title title title_big">
+						Contact Us<span class="text-accent_orange">/</span>
+					</div>
+
+					<div class="contacts__map map">Map loading...
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13619.843866628518!2d73.0706366!3d31.4152015!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392267e208a9f2f7%3A0x5568ec4dc1c409d2!2sCorvit%20Systems%20Faisalabad%20-%20IT%20Training%20Institute!5e0!3m2!1sen!2s!4v1719916962757!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+					<!-- <div class="contacts__text">
+						Email: <a href="mailto:info@krondev.com" target="_blank">info@krondev.com</a><br>
+						СЕО: John Doe<br>
+						UAE, Dubai, Executive Tower&nbspC, office&nbsp17
+					</div> -->
+
+					<div>
+						<section class="contact" id="contact">
+							<div class="contact_text">
+							 
+							</div>
+							<div class="contact_main">
+								<div class="input">
+									<form action="contact">
+										<div class="name">
+											<label for="username">Name</label>
+											<input type="text" placeholder="John Marine" id="username">
+										</div>
+										<div class="email">
+											<label for="useremail">Email</label>
+											<input type="email" placeholder="John@gmail.com" id="useremail">
+										</div>
+										<div class="textarea">
+											<label for="usertext">Message</label>
+											<textarea name="" id="" cols="30" rows="10"></textarea>
+										</div>
+										<div class="submit">
+											<button class="button-86">Send</button>
+										</div>
+									</form>
+								</div>
+								<div class="details">
+									<div class="details_text">
+										<h1>Get In Touch</h1>
+										
+									</div>
+									<ul>
+										<li>
+											<p>03007828155</p>
+											<ion-icon name="call"></ion-icon>
+										</li>
+										<li>
+											<p>@corvitsystemsfsd</p>
+											<a href="mailto:@corvitsystemsfsd.com?subject=Inquiry&body=Hello, I have a question about courses"></a>
+											<ion-icon name="mail"></ion-icon>
+										</li>
+										<li>
+											<p>2nd Floor, C38C+37H Corvit Plaza, G.C University Kotwali Rd, opposite Gate # 1, Santpura Faisalabad, Punjab 38000</p>
+											<a href="https://www.google.com/maps/place/TECH-HUB+Innovation+Center+Faisalabad/@31.4153181,73.1058235,15z/data=!4m6!3m5!1s0x3922698e845427bb:0xcf5f4e17f1c9f485!8m2!3d31.4153181!4d73.1058235!16s%2Fg%2F11vkks5nhp?entry=ttu">
+											<ion-icon name="location"></ion-icon>
+										</a>
+										</li>
+									</ul>
+									<div class="social">
+										<div class="box">
+											<a href="https://www.facebook.com/CorvitSystemsFaisalabad/ ">
+												<ion-icon name="logo-facebook"></ion-icon>
+											</a>
+										</div>
+										<div class="box">
+											<a href="https://wa.me/+923007828155">
+												<ion-icon name="logo-whatsapp"></ion-icon>
+											</a>
+										</div>
+										<div class="box">
+											<a href="https://www.instagram.com/corvitsystemsfsd/ ">
+												<ion-icon name="logo-instagram"></ion-icon>
+											</a>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+				</div>
+			</div>
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__wrapper">
+					<nav class="footer__menu menu-footer">
+						<ul class="menu-footer__items">
+							<li class="menu-footer__item"><a href="index.html">about us.</a></li>
+							<li class="menu-footer__item"><a href="contacts.html">contacts.</a></li>
+							<li class="menu-footer__item menu-footer__item_gradient"><a href="kronstories.html">#OurProjects</a></li>
+						</ul>
+					</nav>
+					<div class="footer__copyright">© 2024 Teqtronics</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230327195509"></script>
+	<script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js?_v=20230327195509"></script>
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12?_v=20230327195509"></script>
+
+	<script src="js/app.min.js?_v=20230327195509"></script>
+</body>
+
+</html>
